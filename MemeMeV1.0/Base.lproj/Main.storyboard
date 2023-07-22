@@ -16,24 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzH-Mh-EXL">
-                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Rvb-cL-PM1"/>
-                                    <constraint firstAttribute="height" constant="240" id="Vvb-2o-9ax"/>
-                                    <constraint firstAttribute="width" constant="240" id="z2M-Wr-KcY"/>
-                                </constraints>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-QR-D0m">
                                 <rect key="frame" x="0.0" y="786" width="393" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="q21-BT-4oZ">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vUD-4L-9EW"/>
+                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" id="B3j-Qo-Rob">
+                                        <connections>
+                                            <action selector="takeAPicture:" destination="BYZ-38-t0r" id="eXa-3a-7JY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Album" id="q21-BT-4oZ">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="bR5-1O-sFY"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B46-hu-7nn"/>
                                 </items>
                             </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzH-Mh-EXL">
+                                <rect key="frame" x="16" y="246" width="361" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="Vvb-2o-9ax"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,12 +46,14 @@
                             <constraint firstItem="b7g-QR-D0m" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0Mw-E0-uwj"/>
                             <constraint firstItem="b7g-QR-D0m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BO2-qP-QUf"/>
                             <constraint firstAttribute="bottom" secondItem="b7g-QR-D0m" secondAttribute="bottom" constant="22" id="IH9-HN-hJm"/>
-                            <constraint firstItem="b7g-QR-D0m" firstAttribute="top" secondItem="LzH-Mh-EXL" secondAttribute="bottom" constant="240" id="Mlc-FD-ebM"/>
+                            <constraint firstItem="b7g-QR-D0m" firstAttribute="top" secondItem="LzH-Mh-EXL" secondAttribute="bottom" constant="180" id="Mlc-FD-ebM"/>
                             <constraint firstItem="LzH-Mh-EXL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ngv-Mt-cJE"/>
+                            <constraint firstItem="LzH-Mh-EXL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Yma-s0-25i"/>
                             <constraint firstItem="LzH-Mh-EXL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yVR-eq-J3Y"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="B3j-Qo-Rob" id="BlX-eA-3vB"/>
                         <outlet property="imagePickerView" destination="LzH-Mh-EXL" id="fy9-Eb-Ml4"/>
                     </connections>
                 </viewController>
@@ -56,6 +63,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
