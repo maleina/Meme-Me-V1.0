@@ -22,7 +22,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-m7-5CN" userLabel="Top Toolbar">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="31u-vW-2D0"/>
+                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Kud-qH-OxG"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="V3R-vB-lAU"/>
+                                    <barButtonItem title="Cancel" id="31u-vW-2D0"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lD-g8-k7u">
@@ -90,6 +92,7 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
