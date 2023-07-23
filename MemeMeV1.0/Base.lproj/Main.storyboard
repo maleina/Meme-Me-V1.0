@@ -22,9 +22,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-m7-5CN" userLabel="Top Toolbar">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Kud-qH-OxG"/>
+                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Kud-qH-OxG">
+                                        <connections>
+                                            <action selector="shareAMeme:" destination="BYZ-38-t0r" id="ppq-GU-SKc"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="V3R-vB-lAU"/>
-                                    <barButtonItem title="Cancel" id="31u-vW-2D0"/>
+                                    <barButtonItem title="Cancel" id="31u-vW-2D0">
+                                        <connections>
+                                            <action selector="cancelMeme:" destination="BYZ-38-t0r" id="9P6-eQ-PkJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lD-g8-k7u">
@@ -80,9 +88,13 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="x8s-aH-dhq" id="19o-jN-Uzx"/>
+                        <outlet property="bottomToolbar" destination="b7g-QR-D0m" id="jRm-PB-PwK"/>
                         <outlet property="cameraButton" destination="B3j-Qo-Rob" id="BlX-eA-3vB"/>
+                        <outlet property="cancelButton" destination="31u-vW-2D0" id="ZDe-Lp-Md0"/>
                         <outlet property="imagePickerView" destination="LzH-Mh-EXL" id="fy9-Eb-Ml4"/>
+                        <outlet property="shareButton" destination="Kud-qH-OxG" id="Qmv-cQ-hLP"/>
                         <outlet property="topTextField" destination="1lD-g8-k7u" id="Tjr-QI-5Lf"/>
+                        <outlet property="topToolbar" destination="ISp-m7-5CN" id="xc7-Xe-nVW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
