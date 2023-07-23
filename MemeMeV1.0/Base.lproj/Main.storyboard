@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMeV1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzH-Mh-EXL">
-                                <rect key="frame" x="59" y="44" width="734" height="284"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="671"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-m7-5CN" userLabel="Top Toolbar">
-                                <rect key="frame" x="59" y="0.0" width="734" height="44"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ifS-Vb-Hfd"/>
                                 </constraints>
@@ -39,17 +39,17 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lD-g8-k7u">
-                                <rect key="frame" x="59" y="44" width="734" height="18.666666666666671"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="18.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8s-aH-dhq" userLabel="Bottom Text Field">
-                                <rect key="frame" x="20" y="309.33333333333331" width="812" height="18.666666666666686"/>
+                                <rect key="frame" x="20" y="755.33333333333337" width="353" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-QR-D0m" userLabel="Bottom Toolbar">
-                                <rect key="frame" x="59" y="328" width="734" height="44"/>
+                                <rect key="frame" x="0.0" y="774" width="393" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fdP-g4-iKO"/>
                                 </constraints>
@@ -57,10 +57,10 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vUD-4L-9EW"/>
                                     <barButtonItem title="Camera" image="camera.fill" catalog="system" id="B3j-Qo-Rob">
                                         <connections>
-                                            <action selector="takeAPicture:" destination="BYZ-38-t0r" id="eXa-3a-7JY"/>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="sum-m8-aJl"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Album" id="q21-BT-4oZ">
+                                    <barButtonItem tag="1" title="Album" id="q21-BT-4oZ">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="bR5-1O-sFY"/>
                                         </connections>

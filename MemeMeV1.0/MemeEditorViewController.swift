@@ -35,12 +35,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: Actions
     @IBAction func pickAnImage(_ sender: Any) {
-        pickMemeImage(sourceType: .photoLibrary)
+        if (sender as AnyObject).tag == 0 {
+            pickMemeImage(sourceType: .camera)
+        } else {
+            pickMemeImage(sourceType: .photoLibrary)
+        }
     }
-    
-    @IBAction func takeAPicture(_ sender: Any) {
-        pickMemeImage(sourceType: .camera)
-    }
+
     
     // Generates and saves the meme, then presents the activity view controller so the meme can be shared
     @IBAction func shareAMeme(_ sender: Any) {
@@ -143,7 +144,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @objc func keyboardWillShow(_ notification:Notification) {
         // Pushes the image up so the keyboard doesn't hide the bottom text
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
