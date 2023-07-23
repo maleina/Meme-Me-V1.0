@@ -18,12 +18,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-
     
-    // MARK: Text Field Delegate
-    let textFieldDelegate = TextFieldDelegate()
-    
-    //MARK: Constants
+    //MARK: Variables & Constants
     // Meme text attribures dictionary
     // Some of this code is borrowed from Udacity's Build V1.0 of the MemeMe App lesson
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -32,6 +28,37 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSAttributedString.Key.strokeWidth:  -5.0
     ]
+    
+    // Text Field Delegate
+    let textFieldDelegate = TextFieldDelegate()
+    
+    // MARK: Life Cycle Meethods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Set default text and properties for meme text
+        styleMemeText(textField: topTextField, defaultText: "TOP")
+        styleMemeText(textField: bottomTextField, defaultText: "BOTTOM")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Intial setup enable/disable buttons as necessary
+        subscribeToKeyboardNotifications()
+        // disable camera button in simulator or not available on device
+        #if targetEnvironment(simulator)
+            cameraButton.isEnabled = false
+        #else
+            cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #endif
+        toggleTopButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
     
     // MARK: Actions
     @IBAction func pickAnImage(_ sender: Any) {
@@ -63,52 +90,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imagePickerView.image = nil
         dismiss(animated: true, completion: nil)
         toggleTopButtons()
-    }
-    
-    
-    // MARK: Life Cycle Meethods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Set default text and properties for meme text
-        styleMemeText(textField: topTextField, defaultText: "TOP")
-        styleMemeText(textField: bottomTextField, defaultText: "BOTTOM")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Intial setup enable/disable buttons as necessary
-        subscribeToKeyboardNotifications()
-        // disable camera button in simulator or not available on device
-        #if targetEnvironment(simulator)
-            cameraButton.isEnabled = false
-        #else
-            cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        #endif
-        toggleTopButtons()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-    }
-    
-    // MARK: Delegate methods
-    // Some of code in these next two methods was borrowed from Udacity's Build V1.0 of the MemeMe App lesson
-    
-    // Gets the image chosen by the user
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imagePickerView.image = image
-                }
-        dismiss(animated: true, completion: nil)
-        toggleTopButtons()
-    }
-    
-    // Dismisses the image picker if the user cancels
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Helper Methods
@@ -191,6 +172,23 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             shareButton.isEnabled = true
             cancelButton.isEnabled = true
         }
+    }
+    
+    // MARK: Delegate methods
+    // Some of code in these next two methods was borrowed from Udacity's Build V1.0 of the MemeMe App lesson
+    
+    // Gets the image chosen by the user
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imagePickerView.image = image
+                }
+        dismiss(animated: true, completion: nil)
+        toggleTopButtons()
+    }
+    
+    // Dismisses the image picker if the user cancels
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }
