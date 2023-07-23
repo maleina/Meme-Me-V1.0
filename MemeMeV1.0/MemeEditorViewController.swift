@@ -25,7 +25,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     //MARK: Constants
     // Meme text attribures dictionary
-    // Some of this code is borrowed from Build V1.0 of the MemeMe App lesson
+    // Some of this code is borrowed from Udacity's Build V1.0 of the MemeMe App lesson
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -89,7 +89,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // MARK: Delegate methods
-    // Some of code in these next two methods was borrowed from Build V1.0 of the MemeMe App lesson
+    // Some of code in these next two methods was borrowed from Udacity's Build V1.0 of the MemeMe App lesson
     
     // Gets the image chosen by the user
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -123,7 +123,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         present(pickerController, animated: true, completion: nil)
     }
     
-    // Some of the code in the remaining functions is from from Build V1.0 of the MemeMe App lesson
+    // Some of the code in the remaining functions is from from Udacity's Build V1.0 of the MemeMe App lesson
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -174,6 +174,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
+    // Show and hide cancel and share buttons appropriately (show only if an image has been picked)
     func toggleTopButtons() {
         if imagePickerView.image == nil {
             shareButton.isEnabled = false
