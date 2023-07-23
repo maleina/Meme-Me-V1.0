@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMeV1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzH-Mh-EXL">
-                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
+                                <rect key="frame" x="59" y="44" width="734" height="284"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-m7-5CN" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="59" y="0.0" width="734" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ifS-Vb-Hfd"/>
                                 </constraints>
@@ -39,17 +39,20 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lD-g8-k7u">
-                                <rect key="frame" x="0.0" y="103" width="393" height="18.666666666666671"/>
+                                <rect key="frame" x="59" y="44" width="734" height="18.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8s-aH-dhq" userLabel="Bottom Text Field">
-                                <rect key="frame" x="20" y="730.33333333333337" width="353" height="18.666666666666629"/>
+                                <rect key="frame" x="20" y="309.33333333333331" width="812" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-QR-D0m" userLabel="Bottom Toolbar">
-                                <rect key="frame" x="0.0" y="749" width="393" height="69"/>
+                                <rect key="frame" x="59" y="328" width="734" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fdP-g4-iKO"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vUD-4L-9EW"/>
                                     <barButtonItem title="Camera" image="camera.fill" catalog="system" id="B3j-Qo-Rob">
@@ -79,12 +82,12 @@
                             <constraint firstAttribute="trailing" secondItem="x8s-aH-dhq" secondAttribute="trailing" constant="20" symbolic="YES" id="F1K-zl-MOk"/>
                             <constraint firstItem="x8s-aH-dhq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="FSE-JB-bPY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b7g-QR-D0m" secondAttribute="bottom" id="IH9-HN-hJm"/>
-                            <constraint firstItem="LzH-Mh-EXL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ngv-Mt-cJE"/>
+                            <constraint firstItem="LzH-Mh-EXL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="999" id="Ngv-Mt-cJE"/>
                             <constraint firstItem="1lD-g8-k7u" firstAttribute="leading" secondItem="LzH-Mh-EXL" secondAttribute="leading" id="RLx-PC-5f5"/>
                             <constraint firstItem="LzH-Mh-EXL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yma-s0-25i"/>
                             <constraint firstItem="LzH-Mh-EXL" firstAttribute="bottom" secondItem="x8s-aH-dhq" secondAttribute="bottom" id="aTU-Mo-Zwc"/>
                             <constraint firstItem="1lD-g8-k7u" firstAttribute="trailing" secondItem="LzH-Mh-EXL" secondAttribute="trailing" id="edB-it-e3q"/>
-                            <constraint firstItem="b7g-QR-D0m" firstAttribute="top" secondItem="x8s-aH-dhq" secondAttribute="bottom" id="ij2-NL-3S9"/>
+                            <constraint firstItem="b7g-QR-D0m" firstAttribute="top" secondItem="LzH-Mh-EXL" secondAttribute="bottom" id="ij2-NL-3S9"/>
                             <constraint firstItem="ISp-m7-5CN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="x4y-PJ-rOr"/>
                             <constraint firstItem="LzH-Mh-EXL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yVR-eq-J3Y"/>
                         </constraints>
