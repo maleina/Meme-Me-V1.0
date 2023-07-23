@@ -79,7 +79,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Intial setup enable/disable buttons as necessary
         subscribeToKeyboardNotifications()
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        // sdisable camera button in simulator or not available on device
+        #if targetEnvironment(simulator)
+            cameraButton.isEnabled = false
+        #else
+            cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #endif
         toggleTopButtons()
     }
     
@@ -137,7 +142,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @objc func keyboardWillShow(_ notification:Notification) {
         // Pushes the image up so the keyboard doesn't hide the bottom text
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     @objc func keyboardWillHide(_ notification:Notification) {
