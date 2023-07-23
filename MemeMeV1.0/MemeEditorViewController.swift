@@ -79,7 +79,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Intial setup enable/disable buttons as necessary
         subscribeToKeyboardNotifications()
-        // sdisable camera button in simulator or not available on device
+        // disable camera button in simulator or not available on device
         #if targetEnvironment(simulator)
             cameraButton.isEnabled = false
         #else
